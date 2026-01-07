@@ -1,0 +1,9 @@
+#!/bin/sh
+x=$(git status | head -2 | grep -oE "[0-9]+");
+re='^[0-9]+$'
+if [[ $x =~ $re ]]; then
+	MSG="/tools tolong di update ya:\n"
+	MSG+=$(git log -$x HEAD --pretty=format:"- %s")
+	/Users/me/bin/tm "$(echo "$MSG")" esoftplay
+fi
+exit 0

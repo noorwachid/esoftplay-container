@@ -2,6 +2,13 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 source "$SCRIPT_DIR/../.env"
 
+echo "initializing webserver"
+echo "  forwarding port $WWW_PORT"
+echo "  mounting dir $WWW_DIR"
+echo "initializing database"
+echo "  forwarding port $DB_PORT"
+echo "  mounting dir $DB_DIR"
+
 podman run -d \
 	--replace --name esoftplay-container \
 	-p "$WWW_PORT:80" \
@@ -10,4 +17,4 @@ podman run -d \
 	-v "$DB_DIR:/var/lib/mysql" \
 	esoftplay-image
 
-echo "running on http://127.0.0.1:$WWW_PORT/"
+echo "listening on http://127.0.0.1:$WWW_PORT/"

@@ -27,6 +27,7 @@ RUN mkdir -p /run/nginx \
 # basic nginx config
 RUN rm /etc/nginx/http.d/default.conf
 COPY container/nginx.conf /etc/nginx/http.d/default.conf
+COPY container/nginx.sh /nginx.sh
 
 # php-fpm config
 RUN sed -i 's|;daemonize = yes|daemonize = no|' /etc/php7/php-fpm.conf && \

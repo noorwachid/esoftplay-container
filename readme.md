@@ -9,7 +9,7 @@
   - create `.env` file on the root project (you can copy from `.env.sample`)
   - change the `WWW_PORT`, `WWW_DIR`, `DB_PORT`, `DB_DIR` to match your setup
 - running the container `sh script/run.sh`
-- web server is now exposed on the `http://127.0.0.1:WWW_PORT/`
+- web server is now exposed on the `http://127.0.0.1:$WWW_PORT/`
 - create mysql `dev` user:
   - login into container `podman exec -it esoftplay-container sh`
   - login into mysql server `mysql -u root`

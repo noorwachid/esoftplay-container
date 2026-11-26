@@ -15,6 +15,7 @@ podman run -d \
 	-v "$WWW_DIR:/var/www/html" \
 	-p "$DB_PORT:3306" \
 	-v "$DB_DIR:/var/lib/mysql" \
+	--add-host="bbo.local;api.bbo.local:127.0.0.1" \
 	esoftplay-image
 
 echo "listening on http://127.0.0.1:$WWW_PORT/"

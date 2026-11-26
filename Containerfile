@@ -15,6 +15,7 @@ RUN apk update && apk add --no-cache \
     php7-mbstring \
     php7-xml \
     php7-curl \
+    php7-gd \
     mariadb \
     mariadb-client \
     supervisor

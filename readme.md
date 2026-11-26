@@ -24,3 +24,28 @@
     - mysql client cli: `mysql -u dev -p --port $DB_PORT -h 127.0.0.1 --ssl=off`
     - or any other mysql client application
 
+## Advance
+
+### unresolved local domain nsswitch
+Check again: the order in `/etc/nsswitch.conf`
+
+Run:
+
+```bash
+sudo nano /etc/nsswitch.conf
+```
+
+Find the `hosts:` line and replace it with:
+
+```text
+hosts: files mymachines mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] myhostname dns
+```
+
+Save with `Ctrl+O` → Enter, then exit with `Ctrl+X`.
+
+After that, test again:
+
+```bash
+getent ahostsv4 bbo.local
+curl --noproxy '*' -I --connect-timeout 5 http://bbo.local/
+```

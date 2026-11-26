@@ -1,7 +1,6 @@
 # Esoftplay Podman Container
 
 ## Installation
-
 - installing podman `install podman`
   - on arch `pacman -S podman`
 - building the image `sh script/build.sh`
@@ -25,5 +24,3 @@
     - mysql client cli: `mysql -u dev -p --port $DB_PORT -h 127.0.0.1 --ssl=off`
     - or any other mysql client application
 
-## Advanced
-if you wanted to serve on port 80 you can temporary enable the restricted port with `sudo script/serve_80.sh`

@@ -9,6 +9,11 @@ echo "initializing database"
 echo "  forwarding port $DB_PORT"
 echo "  mounting dir $DB_DIR"
 
+if [ -n "$ENABLE_WWW_ON_PORT_80" ]
+then
+	source "$SCRIPT_DIR/serve_80.sh"
+fi
+
 podman run -d \
 	--replace --name esoftplay-container \
 	-p "$WWW_PORT:80" \
